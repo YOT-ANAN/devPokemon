@@ -3,10 +3,13 @@ import java.util.Scanner;
 public class CommandParser {
 	private Scanner sc;
 	private PokemonFarm pokemonFarm;
+	private Pokeball myPokeball;
+	private Wild wild;
 	private boolean isRunning;
 	public CommandParser() {
 		sc=new Scanner(System.in);
 		pokemonFarm = new PokemonFarm();
+		wild = new Wild();
 		isRunning = false;
 	}
 	public void run() {
@@ -32,7 +35,9 @@ public class CommandParser {
 			else if(command.equals("move")) {
 				this.movePokemon();
 			}
-		
+			else if(command.equals("into the Wild")) {
+				this.wildPokemon();
+			}
 		
 		}
 	}
@@ -73,6 +78,36 @@ public class CommandParser {
 		this.pokemonFarm.move(name,step);
 		sc.nextLine();
 
+	}
+	private void wildPokemon() {
+		String pokemonType;
+		String command;
+	
+		System.out.println("Sightings Wild Pokemon!!!");
+		pokemonType=wild.discoverPokemon();
+		System.out.print("Do you want to catch the "+pokemonType+"? : ");
+		command=sc.nextLine();
+		
+		if(command.equals("Yes")){
+			System.out.print("Please select your pokeball type: ");
+			myPokeball = new Pokeball(sc.nextLine());
+			if(pokemonType.equals("Mewtwo")){
+				Mewtwo mewtwo = new Mewtwo("WildPokemon",pokemonType);	
+				myPokeball.catchPokemon(mewtwo);
+			}
+			else if(pokemonType.equals("Pikachu")) {
+				Pikachu pikachu = new Pikachu("WildPokemon",pokemonType);
+				myPokeball.catchPokemon(pikachu);
+			}
+			else if(pokemonType.equals("Raichu")) {
+				Raichu raichu = new Raichu("WildPokemon",pokemonType);
+				myPokeball.catchPokemon(raichu);
+			}
+		}
+		else {
+			System.out.println("Run!!!!");
+		}
+		
 	}
 
 

@@ -6,6 +6,7 @@ public class Pokemon {
 	private double weight;
 	private double stepLenght;
 	private double distance;
+	private double mood;
 
 	
 	public Pokemon(String name,String type){
@@ -13,6 +14,7 @@ public class Pokemon {
 		this.type=type;
 		setWeight();
 		setStepLenght();
+		setMood();
 		
 	}
 	public void setName(String name) {
@@ -55,6 +57,12 @@ public class Pokemon {
 	}
 	public void eat(){
 		weight++;
+	}
+	private void setMood() {
+		this.mood=Math.random();
+	}
+	public double getMood() {
+		return this.mood;
 	}
 
 }
