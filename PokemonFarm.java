@@ -8,6 +8,10 @@ public class PokemonFarm {
 	public void addPokemon(Pokemon pokemon) {
 		myPokemon.add(pokemon);
 	}
+	public void addMyBag(ArrayList<Pokemon> myBag) {
+		for(int i=0;i<myBag.size();i++)
+			myPokemon.add(myBag.get(i));
+	}
 	public void removePokemon(Pokemon pokemon) {
 		myPokemon.remove(pokemon);
 	}
@@ -43,6 +47,15 @@ public class PokemonFarm {
 			}
 		}
 		
+	}
+	public void evo(String pokemonType){
+		/*for(int i=0;i<myPokemon.size();i++){
+			if(myPokemon.get(i).equals(pokemonType)){
+				myPokemon.set(i,new Raichu(myPokemon.get(i).getName(),"Raichu"));
+				System.out.println("Evolution!!!");
+			}
+				
+		}*/
 	}
 
 }
