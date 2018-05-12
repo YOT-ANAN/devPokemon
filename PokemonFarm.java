@@ -23,27 +23,29 @@ public class PokemonFarm {
 	public void feed(String pokemonName){
 		if(pokemonName.equals("all")){
 			for(Pokemon pokemon: myPokemon){
-				
-				pokemon.eat();
+				Berry berry = new Berry(0);
+				pokemon.eat(berry);
 			}
 		}
 		else {
 			for(Pokemon pokemon: myPokemon){
-				if(pokemon.getName().equals(pokemonName))
-					pokemon.eat();
+				if(pokemon.getName().equals(pokemonName)) {
+					Berry berry = new Berry(0);
+					pokemon.eat(berry);
+				}
 			}
 		}
 	}
 	public void move(String pokemonName,double move) {
 		if(pokemonName.equals("all")){
 			for(Pokemon pokemon: myPokemon){	
-				pokemon.moveStep(move);
+				pokemon.move();
 			}
 		}
 		else {
 			for(Pokemon pokemon: myPokemon){
 				if(pokemon.getName().equals(pokemonName))
-					pokemon.moveStep(move);
+					pokemon.move();
 			}
 		}
 		

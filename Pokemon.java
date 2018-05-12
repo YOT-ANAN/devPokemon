@@ -1,21 +1,20 @@
-import java.util.Random;
-
-public class Pokemon {
+abstract public class Pokemon {
+	public final double maxHealth;
 	private String name;
 	private String type;
+	private double health;
 	private double weight;
-	private double stepLenght;
-	private double distance;
+	protected double stepLenght;
+	protected double distance;
 	private double mood;
-
-	
 	public Pokemon(String name,String type){
-		setName(name);
+		this.name=name;
 		this.type=type;
-		setWeight();
-		setStepLenght();
-		setMood();
-		
+		this.maxHealth=Math.random()*1000;
+		this.health=maxHealth;
+		this.weight=Math.random()*10;
+		this.stepLenght=Math.random();
+		this.mood=Math.random();
 	}
 	public void setName(String name) {
 		this.name=name;
@@ -29,23 +28,19 @@ public class Pokemon {
 	public String getType() {
 		return this.type;
 	}
-	private double setWeight() {
-		return this.weight=Math.random()*10;
-	}
 	public double getWeight() {
 		return this.weight;
-	}
-	private double setStepLenght() {
-		return this.stepLenght=Math.random();
 	}
 	public double getStepLenght() {
 		return this.stepLenght;
 	}
-	public double moveStep(double move) {
-		return this.distance=distance+(move*stepLenght);
-	}
+
 	public double getDistance() {
 		return this.distance;
+	}
+
+	public double getMood() {
+		return this.mood;
 	}
 	public void print(){
 		System.out.printf("Pokemon name\t: %s \n",getName());
@@ -55,14 +50,17 @@ public class Pokemon {
 		System.out.printf("Distance\t: %.2f m \n",getDistance());
 		System.out.println("------------------------------------------");
 	}
-	public void eat(){
-		weight++;
+	public void eat(Berry berry){
+		this.health += berry.getRestoreValue();
+		if(this.health > this.maxHealth)
+			this.health = this.maxHealth;
+		this.weight++;
 	}
-	private void setMood() {
-		this.mood=Math.random();
+	public void reducedHealth(double value){
+		this.health -= value;
+		if(this.health < 0)
+			this.health = 0;
 	}
-	public double getMood() {
-		return this.mood;
-	}
+	abstract public void move();
 
 }
