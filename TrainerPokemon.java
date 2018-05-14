@@ -1,6 +1,6 @@
 
 public class TrainerPokemon {
-	String name;
+	private String name;
 	public TrainerPokemon(String name) {
 		// TODO Auto-generated constructor stub
 		this.name =name;

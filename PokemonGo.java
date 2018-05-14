@@ -9,6 +9,7 @@ import java.util.*;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -27,6 +28,7 @@ public class PokemonGo extends JFrame{
 	private JButton btnFeed;
 	private JButton btnExcercise;
 	private JButton btnBattle;
+	private JComboBox<String> cbBerry;
 	private JTextArea taDetail;
 	private JLabel imgLabel;
 
@@ -34,14 +36,18 @@ public class PokemonGo extends JFrame{
 	public PokemonGo(String title,GUIParser guiParser){
 		super(title);
 		this.guiParser=guiParser;
+		guiParser.dicoverRival();
 		guiParser.printPokemons();
 		p = new JPanel();
 		p.setLayout(new GridBagLayout());
-		btnFeed = new JButton("feed");
+		btnFeed = new JButton("Feed");
 		btnExcercise = new JButton("Excercise");
 		btnBattle = new JButton("Battle");
 		taDetail = new JTextArea(10,2);
-		imgLabel = new JLabel(new ImageIcon(guiParser.getImgPath()));
+		imgLabel = new JLabel(new ImageIcon(guiParser.getImgPath())); 
+		
+		String [] berryList = {"Berry","GoldBerry","MysteryBerry"};
+		cbBerry = new JComboBox(berryList);
 		
 		
 		AddPanel gc = new AddPanel();
@@ -50,6 +56,7 @@ public class PokemonGo extends JFrame{
 		gc.addItem(p,btnFeed,0,1,1,1,GridBagConstraints.WEST);
 		gc.addItem(p,btnExcercise,0,1,1,1,GridBagConstraints.EAST);
 		gc.addItem(p,btnBattle,1,2,1,1,GridBagConstraints.CENTER);
+		gc.addItem(p,cbBerry,0,2,1,1,GridBagConstraints.WEST);
 		
 		taDetail.setText(guiParser.printPokemons());
 		btnFeed.addActionListener(new ButtonListener());
@@ -65,7 +72,7 @@ public class PokemonGo extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnFeed) {			
-					guiParser.feedPokemon(1);
+					guiParser.feedPokemon(cbBerry.getSelectedIndex());
 					taDetail.setText(guiParser.printPokemons());
 					//taDetail.setText("");
 					//System.out.println("F");
@@ -77,12 +84,9 @@ public class PokemonGo extends JFrame{
 					//System.out.println("X");
 				}
 				else if(e.getSource()==btnBattle){
-					
-					guiParser.dicoverRival();
-					
 					JOptionPane.showMessageDialog(null,
-						    "You Pokemon Rival is : "+guiParser.getRivalPokemonName()+"",
-						    "Inane custom dialog",
+						    "Pokemon Rival is : "+guiParser.getRivalPokemonDetail(),
+						    "PokemonRival",
 						    JOptionPane.INFORMATION_MESSAGE);
 					guiParser.pokemonBattle();
 					taDetail.setText(guiParser.printPokemons());

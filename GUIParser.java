@@ -36,9 +36,9 @@ public class GUIParser {
 		}
 	public  String  printPokemons(){
 		String  detail;
-		detail="=======  My Pokemon =======\n";
+		detail="===========  "+pokemonTrainer.getName()+" s' Pokemon ===========\n";
 		for(Pokemon pokemon: myPokemons){
-			detail+="Pokemon "+pokemon.getName()+" health: "+Math.round(pokemon.getHealth())+"/"+Math.round(pokemon.maxHealth)+"\nweight: "+Math.round(pokemon.getWeight())+" kg\n";
+			detail+="Pokemon "+pokemon.getName()+" health: "+Math.round(pokemon.getHealth())+"/"+Math.round(pokemon.maxHealth)+"\nweight: "+Math.round(pokemon.getWeight())+" kg\n"+pokemon.printAttackSkill();
 		}
 		return detail;
 	}
@@ -74,8 +74,8 @@ public class GUIParser {
 	public String getRivalImgPath() {
 		return rivalPokemon.get(0).getImgPath();
 	}
-	public String getRivalPokemonName() {
-		return rivalPokemon.get(0).getName();
+	public String getRivalPokemonDetail() {
+		return rivalPokemon.get(0).getName()+"\n"+rivalPokemon.get(0).printAttackSkill();
 	}
 }
 	

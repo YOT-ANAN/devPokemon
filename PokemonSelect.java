@@ -1,4 +1,5 @@
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -36,11 +37,11 @@ public class PokemonSelect extends JFrame{
 		lblB = new JLabel("Bulbasaur");
 		lblH = new JLabel("Hitokage");
 		lblS = new JLabel("Squirtle");
-		btnB.setIcon(new ImageIcon("C:\\Users\\toY\\Desktop\\pokemon_picture\\Bulbasaur.gif"));
+		btnB.setIcon(new ImageIcon("images/Bulbasaur.gif"));
 		btnB.setPreferredSize(new Dimension(200,300));
-		btnH.setIcon(new ImageIcon("C:\\Users\\toY\\Desktop\\pokemon_picture\\hitokage.gif"));
+		btnH.setIcon(new ImageIcon("images/hitokage.gif"));
 		btnH.setPreferredSize(new Dimension(200,300));
-		btnS.setIcon(new ImageIcon("C:\\Users\\toY\\Desktop\\pokemon_picture\\Squirtle.gif"));
+		btnS.setIcon(new ImageIcon("images/Squirtle.gif"));
 		btnS.setPreferredSize(new Dimension(200,300));
 		//validate();
 

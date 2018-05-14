@@ -1,9 +1,11 @@
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,23 +22,23 @@ public class PokemonStart extends JFrame{
 	private JTextField tfName;
 	public PokemonStart(String title) {
 		super(title);
-		
 		p= new JPanel();
 		p.setLayout(new GridBagLayout());
 		lblWelcome = new JLabel("Welcome to the world of POKeMON");
-		lblName = new JLabel("Name :");
-		tfName	= new JTextField(10);
+		lblName = new JLabel("Pokemon Trainer Name :");
+		tfName	= new JTextField(18);
 		btnStart = new JButton("PRESS START");
-		//btnStart.setBounds(200, 500, 193, 77);
-		//btnStart.setPreferredSize(new Dimension(50,30));
+
 		
 		AddPanel gc = new AddPanel();
+
 		gc.addItem(p,lblWelcome,1,0,1,1,GridBagConstraints.CENTER);
-		gc.addItem(p,lblName,0,1,1,1,GridBagConstraints.EAST);
+		gc.addItem(p,lblName,0,1,1,1,GridBagConstraints.WEST);
 		gc.addItem(p,tfName,1,1,1,1,GridBagConstraints.CENTER);
 		gc.addItem(p,btnStart,1,2,1,1,GridBagConstraints.CENTER);
 		
 		btnStart.addActionListener(new ButtonListener());
+
 		add(p);
 		
 		

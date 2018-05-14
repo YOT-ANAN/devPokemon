@@ -22,6 +22,9 @@ abstract class Pokemon{
 	public double getWeight(){
 		return this.weight;
 	}
+	public String printAttackSkill() {
+		return "AttackSkill : "+attackSkill.getName()+" , Damage : "+attackSkill.getDamage();
+	}
 	public void eat(Berry berry){
 		this.health += berry.getRestoreValue();
 		if(this.health > this.maxHealth)
@@ -33,9 +36,6 @@ abstract class Pokemon{
 		rival.injure(this.attackSkill);
 	}
 
-	public void untimate(Pokemon rival){
-		rival.injure(this.untimatedSkill);
-	}
 
 	public void injure(PokemonSkill skill){
 		this.reducedHealth(skill.getDamage());

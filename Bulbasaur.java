@@ -7,6 +7,7 @@ public class Bulbasaur extends Pokemon implements Runnable{
 			this.attackSkill = PokemonSkill.getPokemonSkill("Thunder Shock");
 			this.untimatedSkill = PokemonSkill.getPokemonSkill("Thunderbolt");
 			this.imgPath="C:\\\\Users\\\\toY\\\\Desktop\\\\pokemon_picture\\\\Bulbasaur.gif";
+			this.imgPath="images/Bulbasaur.gif";
 	}
 	
 

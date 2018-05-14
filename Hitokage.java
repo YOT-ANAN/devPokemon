@@ -4,9 +4,8 @@ public class Hitokage extends Pokemon implements Runnable{
 		super("Hitokage",
 			      (Math.random()*1000) % (maxGroupHealth+1));
 
-			this.attackSkill = PokemonSkill.getPokemonSkill("Thunder Shock");
-			this.untimatedSkill = PokemonSkill.getPokemonSkill("Thunderbolt");
-			this.imgPath="C:\\\\Users\\\\toY\\\\Desktop\\\\pokemon_picture\\\\hitokage.gif";
+			this.attackSkill = PokemonSkill.getPokemonSkill("Fire Ball");
+			this.imgPath="images/hitokage.gif";
 	}	
 	public void move(){
 		this.run();

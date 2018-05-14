@@ -36,6 +36,12 @@ public class PokemonSkill{
 			case "surf":
 				skill = new PokemonSkill("Surf", 70);
 				break;
+			case "fire ball":
+				skill = new PokemonSkill("Fire Ball", 60);
+				break;
+			case "solar beam":
+				skill = new PokemonSkill("Solar Beam", 80);
+				break;
 		}
 		return skill;
 	}
